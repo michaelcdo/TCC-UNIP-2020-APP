@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">EIA</string>
+    <string name="label_bem_vindo">Bem Vindo</string>
+    <string name="label_nome">Como gostaria de ser chamado</string>
+    <string name="label_pular">Pular</string>
+</resources>
