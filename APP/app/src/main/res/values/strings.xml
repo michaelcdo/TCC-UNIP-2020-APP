@@ -3,4 +3,7 @@
     <string name="label_bem_vindo">Bem Vindo</string>
     <string name="label_nome">Como gostaria de ser chamado</string>
     <string name="label_pular">Pular</string>
+    <string name="digite_a_mensagem">Digite a Mensagem</string>
+    <string name="enviar">Enviar</string>
+
 </resources>

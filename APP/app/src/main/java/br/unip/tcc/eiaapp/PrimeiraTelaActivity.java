@@ -15,6 +15,7 @@ public class PrimeiraTelaActivity extends AppCompatActivity {
 
     private EditText inputNome;
     private TextView labelPular;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class PrimeiraTelaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //String nome = inputNome.getText().toString();
                 //Log.i("nome ",nome);
-                Intent intent = new Intent(PrimeiraTelaActivity.this,MenuActivity.class);
+                Intent intent = new Intent(PrimeiraTelaActivity.this,ChatActivity.class);
                 startActivity(intent);
             }
         });
@@ -45,8 +46,16 @@ public class PrimeiraTelaActivity extends AppCompatActivity {
                 // If the event is a key-down event on the "enter" button
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    // Perform action on key press
-                    Toast.makeText(PrimeiraTelaActivity.this, "Oi", Toast.LENGTH_SHORT).show();
+
+                    String text = inputNome.getText().toString();
+
+                    if(text.length() > 0) {
+                        Intent intent = new Intent(PrimeiraTelaActivity.this, CadastroActivity.class);
+                        startActivity(intent);
+                    }else{
+                        toast = Toast.makeText(PrimeiraTelaActivity.this, "Informe seu nome.", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
                     return true;
                 }
                 return false;

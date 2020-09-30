@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
-import com.xwray.groupie.ViewHolder;
+import com.xwray.groupie.GroupieViewHolder;
 
 import br.unip.tcc.eiaapp.DTO.MensagemWatsonDTO;
 import br.unip.tcc.eiaapp.DTO.MessageDTO;
@@ -35,7 +35,7 @@ public class ChatActivity extends AppCompatActivity {
     private Toast toast;
     private long lastBackPressTime = 0;
     private EditText inputMensagem;
-    GroupAdapter adapter = new GroupAdapter();
+    private GroupAdapter adapter = new GroupAdapter();
     private MensagemWatsonDTO mensagemWatsonDTO;
     private CallAPI callApi;
 
@@ -79,7 +79,7 @@ public class ChatActivity extends AppCompatActivity {
         enviaMensagem(msg);
     }
 
-    private class MessageItem extends Item<ViewHolder>{
+    private class MessageItem extends Item<GroupieViewHolder>{
         private final MessageDTO message;
 
         private MessageItem(MessageDTO message){
@@ -87,7 +87,7 @@ public class ChatActivity extends AppCompatActivity {
         }
 
         @Override
-        public void bind(@NonNull ViewHolder viewHolder, int position) {
+        public void bind(@NonNull GroupieViewHolder viewHolder, int position) {
             TextView txtMsg = viewHolder.itemView.findViewById(R.id.txt_message);
 
             txtMsg.setText(message.getText());
@@ -95,7 +95,7 @@ public class ChatActivity extends AppCompatActivity {
 
         @Override
         public int getLayout() {
-            return message.isWatson() ? R.layout.item_to_layout : R.layout.item_from_layout;
+            return message.isWatson() ? R.layout.item_from_layout : R.layout.item_to_layout;
         }
     }
 
