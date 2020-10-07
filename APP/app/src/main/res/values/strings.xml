@@ -5,5 +5,9 @@
     <string name="label_pular">Pular</string>
     <string name="digite_a_mensagem">Digite a Mensagem</string>
     <string name="enviar">Enviar</string>
+    <string name="label_email">\"Email:\"</string>
+    <string name="exemplo_email">exemplo@exemplo.com</string>
+    <string name="descricao_imagem_humor">Imagem mostrando quatro estados emocionais (Alegria, Neutro, Raixa, Tristeza)</string>
+    <string name="txt_ponteiro">Ponteiro que aponta para o estado escolhido</string>
 
 </resources>

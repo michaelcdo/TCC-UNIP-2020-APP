@@ -42,5 +42,4 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     implementation 'com.xwray:groupie:2.8.1'
-
 }

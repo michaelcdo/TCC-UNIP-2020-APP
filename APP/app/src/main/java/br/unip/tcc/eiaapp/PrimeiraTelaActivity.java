@@ -33,10 +33,11 @@ public class PrimeiraTelaActivity extends AppCompatActivity {
         labelPular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String nome = inputNome.getText().toString();
-                //Log.i("nome ",nome);
-                Intent intent = new Intent(PrimeiraTelaActivity.this,ChatActivity.class);
+
+                //Intent intent = new Intent(PrimeiraTelaActivity.this,ChatActivity.class);
+                Intent intent = new Intent(PrimeiraTelaActivity.this,HumorActivity.class);
                 startActivity(intent);
+
             }
         });
 
