@@ -7,4 +7,147 @@
     tools:context=".MenuActivity"
     android:background="@drawable/background_gradient">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/background_rounded"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/background_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="402dp"
+            android:layout_height="80dp"
+            android:background="@color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/voltar_button"
+        android:layout_width="51dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/estatistica_button"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:srcCompat="@drawable/voltar" />
+
+    <ImageButton
+        android:id="@+id/estatistica_button"
+        android:layout_width="51dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:srcCompat="@drawable/estatistica" />
+
+        <ImageButton
+            android:id="@+id/chat_button"
+            android:layout_width="51dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/toolbar"
+            app:layout_constraintStart_toEndOf="@+id/estatistica_button"
+            app:layout_constraintTop_toTopOf="@+id/toolbar"
+            app:srcCompat="@drawable/chat" />
+
+        <ImageButton
+            android:id="@+id/exercicios_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="rgba(0,0,0,1)"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.141"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.084"
+            app:srcCompat="@drawable/exercicios" />
+
+        <ImageButton
+            android:id="@+id/leitrura_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="rgba(0,0,0,1)"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/exercicios_button"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/exercicios_button"
+            app:layout_constraintTop_toBottomOf="@+id/exercicios_button"
+            app:layout_constraintVertical_bias="0.11"
+            app:srcCompat="@drawable/leitura" />
+
+        <ImageButton
+            android:id="@+id/jogos_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="rgba(0,0,0,1)"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/musicas_button"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/musicas_button"
+            app:layout_constraintTop_toBottomOf="@+id/musicas_button"
+            app:layout_constraintVertical_bias="0.11"
+            app:srcCompat="@drawable/jogos" />
+
+        <ImageButton
+            android:id="@+id/musicas_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:background="rgba(0,0,0,1)"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.558"
+            app:layout_constraintStart_toEndOf="@+id/exercicios_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.084"
+            app:srcCompat="@drawable/musicas_meditacao" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/titulo_estatistica"
+        android:layout_width="231dp"
+        android:layout_height="47dp"
+        android:text="Entreterimento"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/background_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.876" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="86dp"
+        android:layout_height="80dp"
+        android:background="rgba(0,0,0,1)"
+        app:layout_constraintBottom_toTopOf="@+id/titulo_estatistica"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/titulo_estatistica"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menu" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

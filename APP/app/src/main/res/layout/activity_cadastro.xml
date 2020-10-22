@@ -7,4 +7,83 @@
     tools:context=".CadastroActivity"
     android:background="@drawable/background_gradient">
 
+    <TextView
+        android:id="@+id/Cadastro"
+        android:layout_width="395dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:text="Só mais alguns dados"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="37sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/impult_email"
+        android:layout_width="273dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/white"
+        android:textColor="@color/colorPrimary"
+        android:text=" E-mail"
+        app:layout_constraintEnd_toEndOf="@+id/Cadastro"
+        app:layout_constraintStart_toStartOf="@+id/Cadastro"
+        app:layout_constraintTop_toBottomOf="@+id/Cadastro" />
+
+    <EditText
+        android:id="@+id/impult_telefone"
+        android:layout_width="273dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/white"
+        android:textColor="@color/colorPrimary"
+        android:text="Telefone"
+        app:layout_constraintEnd_toEndOf="@+id/impult_email"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/impult_email"
+        app:layout_constraintTop_toBottomOf="@+id/impult_email" />
+
+    <EditText
+        android:id="@+id/impult_nascimentodt"
+        android:layout_width="273dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/white"
+        android:textColor="@color/colorPrimary"
+        android:inputType="date"
+        android:text="Data de nascimento"
+        app:layout_constraintEnd_toEndOf="@+id/impult_telefone"
+        app:layout_constraintStart_toStartOf="@+id/impult_telefone"
+        app:layout_constraintTop_toBottomOf="@+id/impult_telefone" />
+
+    <EditText
+        android:id="@+id/impult_genero"
+        android:layout_width="273dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/white"
+        android:textColor="@color/colorPrimary"
+        android:text="genero"
+        app:layout_constraintEnd_toEndOf="@+id/impult_nascimentodt"
+        app:layout_constraintStart_toStartOf="@+id/impult_nascimentodt"
+        app:layout_constraintTop_toBottomOf="@+id/impult_nascimentodt" />
+
+    <ImageButton
+        android:id="@+id/cadastro_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="rgba(0,0,0,1)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/impult_genero"
+        app:srcCompat="@drawable/proximo_da_tela_de_cadastro" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
