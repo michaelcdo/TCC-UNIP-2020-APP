@@ -9,5 +9,12 @@
     <string name="exemplo_email">exemplo@exemplo.com</string>
     <string name="descricao_imagem_humor">Imagem mostrando quatro estados emocionais (Alegria, Neutro, Raixa, Tristeza)</string>
     <string name="txt_ponteiro">Ponteiro que aponta para o estado escolhido</string>
+    <string name="btn_avancar_description">Botão avançar</string>
+    <string name="empty"></string>
+    <string name="rosto_feliz">Rosto Feliz</string>
+    <string name="rosto_triste">Rosto Triste</string>
+    <string name="rosto_bravo">Rosto Bravo</string>
+    <string name="rosto_confuso">Rosto Confuso</string>
+    <string name="historico_emocional">Histórico emocional</string>
 
 </resources>

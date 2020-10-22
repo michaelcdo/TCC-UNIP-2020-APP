@@ -46,20 +46,22 @@
         android:ems="10"
         android:hint="@string/digite_a_mensagem"
         android:inputType="textPersonName"
+        android:background="@drawable/background_text_chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.176"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/background_rounded"
-        app:layout_constraintVertical_bias="0.50" />
+        app:layout_constraintVertical_bias="0.50"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
 
     <Button
         android:id="@+id/btnEnviarChat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_bt_rounded"
-        android:text="@string/enviar"
-        android:textColor="@color/white"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@mipmap/btn_enviar"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/input_mensagem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/input_mensagem"

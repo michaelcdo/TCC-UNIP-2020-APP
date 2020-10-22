@@ -4,5 +4,6 @@
     <color name="colorPrimaryLight">#dcfbfa</color>
     <color name="colorPrimaryDark">#1f5351</color>
     <color name="colorAccent">#84d2cf</color>
-    <color name="white">#ffffff</color>
+    <color name="bg_chat">#2BB2AD</color>
+
 </resources>

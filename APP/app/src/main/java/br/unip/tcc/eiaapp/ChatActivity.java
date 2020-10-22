@@ -1,10 +1,8 @@
 package br.unip.tcc.eiaapp;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,10 +18,15 @@ import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.GroupieViewHolder;
 
+import java.time.Year;
+
+import br.unip.tcc.eiaapp.DTO.HumorDTO;
 import br.unip.tcc.eiaapp.DTO.MensagemWatsonDTO;
 import br.unip.tcc.eiaapp.DTO.MessageDTO;
+import br.unip.tcc.eiaapp.DTO.UserDTO;
 import br.unip.tcc.eiaapp.util.CallAPI;
 import br.unip.tcc.eiaapp.util.Constants;
+import br.unip.tcc.eiaapp.util.Util;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,17 +39,40 @@ public class ChatActivity extends AppCompatActivity {
     private long lastBackPressTime = 0;
     private EditText inputMensagem;
     private GroupAdapter adapter = new GroupAdapter();
-    private MensagemWatsonDTO mensagemWatsonDTO;
     private CallAPI callApi;
+    private UserDTO user;
+    private String telaOrigem = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        Util.hideSystemUI(getWindow().getDecorView());
+
+        telaOrigem = getIntent().getStringExtra("telaOrigem");
+
+        this.user = Util.carregaUser(ChatActivity.this);
+
         RecyclerView rv = findViewById(R.id.recycler_chat);
         inputMensagem = findViewById(R.id.input_mensagem);
         Button btnChat = findViewById(R.id.btnEnviarChat);
+
+        inputMensagem.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    Util.hideKeyboard(ChatActivity.this);
+                    sendMessage();
+
+                    return true;
+                }
+                return false;
+            }
+        });
 
         btnChat.setOnClickListener(view -> sendMessage());
 
@@ -59,22 +85,31 @@ public class ChatActivity extends AppCompatActivity {
                 .build();
         callApi = retrofit.create(CallAPI.class);
 
+        int codHumor = getIntent().getIntExtra("humor_selecionado",0);
+        if(codHumor>0){
+            HumorDTO humor = new HumorDTO();
+            humor.setCodHumor(codHumor);
+            humor.setIdUser(this.user.getId());
+            humor.setCodRetorno(0);
+            gravaHumor(humor);
+        }
+
     }
 
     private void sendMessage(){
         String text = inputMensagem.getText().toString();
 
-        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(ChatActivity.this);
-        Long idUser = myPreferences.getLong("idUser",0);
-
         MessageDTO messageEntrada = new MessageDTO();
         messageEntrada.setWatson(false);
         messageEntrada.setText(text);
+        messageEntrada.setTimestamp(Util.getData());
 
         adapter.add(new MessageItem(messageEntrada));
+        Util.salvaHistorico(messageEntrada, ChatActivity.this);
+
         inputMensagem.setText(null);
 
-        MensagemWatsonDTO msg = new MensagemWatsonDTO(idUser, text, "");
+        MensagemWatsonDTO msg = new MensagemWatsonDTO(this.user.getId(), text, "");
 
         enviaMensagem(msg);
     }
@@ -89,8 +124,10 @@ public class ChatActivity extends AppCompatActivity {
         @Override
         public void bind(@NonNull GroupieViewHolder viewHolder, int position) {
             TextView txtMsg = viewHolder.itemView.findViewById(R.id.txt_message);
+            TextView txtTime = viewHolder.itemView.findViewById(R.id.txt_time);
 
             txtMsg.setText(message.getText());
+            txtTime.setText(message.getTimestamp());
         }
 
         @Override
@@ -100,42 +137,40 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-        if (this.lastBackPressTime < System.currentTimeMillis() - 4000) {
-            toast = Toast.makeText(this, "Pressione o Botão Voltar novamente para fechar o Aplicativo.", Toast.LENGTH_SHORT);
-            toast.show();
-            this.lastBackPressTime = System.currentTimeMillis();
-        } else {
-            if (toast != null) {
-                toast.cancel();
-            }
-            Intent intent = new Intent(this, PrimeiraTelaActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("Exit me", true);
-            startActivity(intent);
-            finish();
-        }
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Util.hideSystemUI(getWindow().getDecorView());
     }
 
+    @Override
+    public void onBackPressed() {
+        voltarTela();
+    }
+    private void voltarTela(){
+        if(telaOrigem.equals("grafico")) {
+            Intent intent = new Intent(this, GraficoActivity.class);
+            startActivity(intent);
+        }else {
+            Intent intent = new Intent(this, HumorActivity.class);
+            startActivity(intent);
+        }
+    }
     private void adicionaMensagemWatson(MensagemWatsonDTO mensagemWatsonDTO){
         if(!mensagemWatsonDTO.getMensagemRetorno().equals("")) {
             MessageDTO messageRetorno = new MessageDTO();
             messageRetorno.setWatson(true);
             messageRetorno.setText(mensagemWatsonDTO.getMensagemRetorno());
-            SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(ChatActivity.this);
-            Long idUser = myPreferences.getLong("idUser",0);
-
-            if(idUser == 0 && mensagemWatsonDTO.getIdUser()>0){
-                SharedPreferences.Editor myEditor = myPreferences.edit();
-                myEditor.putLong("idUser", mensagemWatsonDTO.getIdUser());
-                myEditor.commit();
+            messageRetorno.setTimestamp(Util.getData());
+            if(this.user.getId() == 0 && mensagemWatsonDTO.getIdUser()>0){
+                this.user.setId(mensagemWatsonDTO.getIdUser());
+                this.user = Util.atualizaUser(this.user, ChatActivity.this);
             }
             adapter.add(new MessageItem(messageRetorno));
+            Util.salvaHistorico(messageRetorno, ChatActivity.this);
         }
     }
 
     private void enviaMensagem(MensagemWatsonDTO mensagem){
-        mensagemWatsonDTO = mensagem;
         Call<MensagemWatsonDTO> call = callApi.enviaMensagem(mensagem);
 
         call.enqueue(new Callback<MensagemWatsonDTO>() {
@@ -152,10 +187,39 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<MensagemWatsonDTO> call, Throwable t) {
-                MensagemWatsonDTO mensagemResposta = new MensagemWatsonDTO(0l,"",t.getMessage());
+                MensagemWatsonDTO mensagemResposta = new MensagemWatsonDTO(0l,"","Desculpe!");
                 adicionaMensagemWatson(mensagemResposta);
 
-                Log.i("teste",t.getMessage());
+                return;
+            }
+        });
+    }
+    private void gravaHumor(HumorDTO humorDTO){
+        Call<HumorDTO> call = callApi.gravaHumor(humorDTO);
+
+        call.enqueue(new Callback<HumorDTO>() {
+            @Override
+            public void onResponse(Call<HumorDTO> call, Response<HumorDTO> response) {
+                if(!response.isSuccessful()) {
+                    toast = Toast.makeText(ChatActivity.this, "Erro ao gravar os dados de humor.", Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                }
+                HumorDTO humor = response.body();
+                if(humor.getCodRetorno()!=0){
+                    toast = Toast.makeText(ChatActivity.this, "Erro ao gravar os dados de humor.", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    toast = Toast.makeText(ChatActivity.this, "Humor gravado com sucesso.", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                return;
+            }
+
+            @Override
+            public void onFailure(Call<HumorDTO> call, Throwable t) {
+                toast = Toast.makeText(ChatActivity.this, "Erro ao gravar os dados de humor.", Toast.LENGTH_SHORT);
+                toast.show();
                 return;
             }
         });

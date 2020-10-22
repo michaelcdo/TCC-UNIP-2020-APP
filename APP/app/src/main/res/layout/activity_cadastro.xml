@@ -15,7 +15,7 @@
         android:gravity="center_horizontal"
         android:text="@string/label_email"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/label_pular"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="@+id/input_email"
         app:layout_constraintTop_toBottomOf="@+id/input_email" />
 
@@ -41,7 +41,7 @@
         android:layout_width="331dp"
         android:layout_height="23dp"
         android:layout_marginTop="12dp"
-        android:background="@color/white"
+        android:background="@android:color/white"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"

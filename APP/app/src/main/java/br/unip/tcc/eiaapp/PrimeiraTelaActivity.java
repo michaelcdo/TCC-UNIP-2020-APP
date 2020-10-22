@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import br.unip.tcc.eiaapp.util.Util;
+
 public class PrimeiraTelaActivity extends AppCompatActivity {
 
     private EditText inputNome;
@@ -21,6 +23,8 @@ public class PrimeiraTelaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_primeira_tela);
+
+        Util.hideSystemUI(getWindow().getDecorView());
 
         if( getIntent().getBooleanExtra("Exit me", false)){
             finish();
@@ -62,5 +66,11 @@ public class PrimeiraTelaActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Util.hideSystemUI(getWindow().getDecorView());
     }
 }

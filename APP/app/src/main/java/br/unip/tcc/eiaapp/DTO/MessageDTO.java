@@ -3,7 +3,7 @@ package br.unip.tcc.eiaapp.DTO;
 public class MessageDTO {
 
     private String text;
-    private long timestamp;
+    private String timestamp;
     private boolean isWatson;
 
     public String getText() {
@@ -14,11 +14,11 @@ public class MessageDTO {
         this.text = text;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
