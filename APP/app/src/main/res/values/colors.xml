@@ -5,5 +5,6 @@
     <color name="colorPrimaryDark">#1f5351</color>
     <color name="colorAccent">#84d2cf</color>
     <color name="bg_chat">#2BB2AD</color>
-
+    <color name="shadow_text">#1A000000</color>
+    <color name="bg_text_cadastro">#91FFFFFF</color>
 </resources>

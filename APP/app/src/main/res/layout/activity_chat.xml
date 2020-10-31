@@ -8,6 +8,33 @@
     android:background="@drawable/background_gradient"
      >
 
+    <TextView
+        android:id="@+id/txt_nome_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/background_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/btn_menu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/btn_menu_description"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/background_rounded"
         android:layout_width="0dp"
@@ -60,7 +87,7 @@
         android:id="@+id/btnEnviarChat"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="@mipmap/btn_enviar"
+        android:background="@drawable/btn_enviar"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/input_mensagem"
         app:layout_constraintEnd_toEndOf="parent"

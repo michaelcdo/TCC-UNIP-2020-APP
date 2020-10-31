@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EntretenimentoActivity"
+    android:background="@drawable/background_gradient">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/background_rounded"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/background_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/termos_de_uso"
+            android:layout_width="0dp"
+            android:layout_height="326dp"
+            android:layout_marginTop="52dp"
+            android:fontFamily="@font/roboto"
+            android:text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            android:textColor="@android:color/black"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_aceita"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="60dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toEndOf="@+id/termos_de_uso"
+            app:layout_constraintHorizontal_bias="0.382"
+            app:layout_constraintStart_toStartOf="@+id/btn_recusa"
+            app:layout_constraintTop_toBottomOf="@+id/termos_de_uso"
+            app:srcCompat="@drawable/btn_avancar_termo" />
+
+        <ImageButton
+            android:id="@+id/btn_recusa"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="60dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toEndOf="@+id/termos_de_uso"
+            app:layout_constraintHorizontal_bias="0.362"
+            app:layout_constraintStart_toStartOf="@+id/termos_de_uso"
+            app:layout_constraintTop_toBottomOf="@+id/termos_de_uso"
+            app:srcCompat="@drawable/recusa" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/titulo_termos"
+        android:layout_width="234dp"
+        android:layout_height="44dp"
+        android:text="Termos de uso"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/roboto"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/background_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.614" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

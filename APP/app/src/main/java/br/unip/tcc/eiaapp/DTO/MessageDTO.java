@@ -4,6 +4,7 @@ public class MessageDTO {
 
     private String text;
     private String timestamp;
+    private String data;
     private boolean isWatson;
 
     public String getText() {
@@ -28,5 +29,13 @@ public class MessageDTO {
 
     public void setWatson(boolean watson) {
         isWatson = watson;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }

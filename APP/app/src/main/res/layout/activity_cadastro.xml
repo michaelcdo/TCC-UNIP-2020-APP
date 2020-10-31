@@ -8,48 +8,90 @@
     android:background="@drawable/background_gradient">
 
     <TextView
-        android:id="@+id/label_email"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:clickable="false"
-        android:gravity="center_horizontal"
-        android:text="@string/label_email"
+        android:id="@+id/label_cadastro"
+        android:layout_width="395dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:text="@string/label_cadastro"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="37sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268" />
-
-    <TextView
-        android:id="@+id/label_pular2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/label_pular"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@+id/input_email"
-        app:layout_constraintTop_toBottomOf="@+id/input_email" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/input_email"
-        android:layout_width="331dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="12dp"
-        android:background="@android:color/white"
-        android:ems="10"
+        android:layout_width="258dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/bg_text_cadastro"
+        android:hint="@string/label_email"
+        android:textColorHint="@color/colorPrimary"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/label_cadastro"
+        app:layout_constraintStart_toStartOf="@+id/label_cadastro"
+        app:layout_constraintTop_toBottomOf="@+id/label_cadastro"
+        android:autofillHints="@string/label_email" />
+
+    <EditText
+        android:id="@+id/input_telefone"
+        android:layout_width="258dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/bg_text_cadastro"
+        android:hint="@string/label_telefone"
+        android:inputType="phone"
+        android:textColorHint="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/input_email"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/label_email"
-        app:layout_constraintTop_toBottomOf="@+id/label_email"
-        android:autofillHints="@string/exemplo_email"
-        android:hint="@string/exemplo_email"/>
+        app:layout_constraintStart_toStartOf="@+id/input_email"
+        app:layout_constraintTop_toBottomOf="@+id/input_email"
+        android:autofillHints="@string/label_telefone" />
+
+    <EditText
+        android:id="@+id/input_dt_nasc"
+        android:layout_width="258dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/bg_text_cadastro"
+        android:inputType="date"
+        android:hint="@string/label_dt_nasc"
+        android:textColorHint="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/input_telefone"
+        app:layout_constraintStart_toStartOf="@+id/input_telefone"
+        app:layout_constraintTop_toBottomOf="@+id/input_telefone"
+        android:autofillHints="@string/label_dt_nasc" />
+
+    <Spinner
+        android:id="@+id/input_sexo"
+        android:layout_width="258sp"
+        android:layout_height="38dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/bg_text_cadastro"
+        android:hint="@string/label_sexo"
+        android:textColorHint="@color/colorPrimary"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/input_dt_nasc"
+        app:layout_constraintStart_toStartOf="@+id/input_dt_nasc"
+        app:layout_constraintTop_toBottomOf="@+id/input_dt_nasc" />
+
+    <ImageButton
+        android:id="@+id/btn_cadastro"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/btn_avancar_description"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_sexo"
+        app:srcCompat="@drawable/btn_avancar" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

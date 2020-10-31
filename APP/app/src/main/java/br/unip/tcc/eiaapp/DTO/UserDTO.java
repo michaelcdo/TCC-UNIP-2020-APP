@@ -1,9 +1,12 @@
 package br.unip.tcc.eiaapp.DTO;
 
 public class UserDTO {
+
     private long id;
     private String nome;
     private String email;
+    private String telefone;
+    private String sexo;
     private int idade;
 
     public long getId() {
@@ -36,5 +39,21 @@ public class UserDTO {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 }

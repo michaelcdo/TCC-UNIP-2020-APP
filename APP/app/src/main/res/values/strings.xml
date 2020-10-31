@@ -5,7 +5,7 @@
     <string name="label_pular">Pular</string>
     <string name="digite_a_mensagem">Digite a Mensagem</string>
     <string name="enviar">Enviar</string>
-    <string name="label_email">\"Email:\"</string>
+    <string name="label_email">Email:</string>
     <string name="exemplo_email">exemplo@exemplo.com</string>
     <string name="descricao_imagem_humor">Imagem mostrando quatro estados emocionais (Alegria, Neutro, Raixa, Tristeza)</string>
     <string name="txt_ponteiro">Ponteiro que aponta para o estado escolhido</string>
@@ -16,5 +16,34 @@
     <string name="rosto_bravo">Rosto Bravo</string>
     <string name="rosto_confuso">Rosto Confuso</string>
     <string name="historico_emocional">Histórico emocional</string>
+    <string name="texto_humor_default">Por favor, informe como está se sentindo para que possamos te ajudar.</string>
+    <string name="label_cadastro">Só mais alguns dados</string>
+    <string name="label_telefone">Telefone:</string>
+    <string name="label_dt_nasc">Data de Nascimento:</string>
+    <string name="label_sexo">Sexo:</string>
+    <string name="btn_menu_description">Botão de menu</string>
+    <string name="txt_emergencia_menu">Emergência</string>
+    <string name="txt_suporte_menu">Suporte</string>
+    <string name="txt_humor_menu">Inserir Humor</string>
+    <string name="txt_mais_menu">Mais</string>
+    <string name="txt_entretenimento_menu">Entretenimento</string>
+    <string name="txt_historico_menu">Histórico emocional</string>
+    <string name="txt_termo_menu">Termos de uso</string>
+    <string name="txt_chat_menu">Chat</string>
+    <string name="txt_emergencia">Emergência</string>
+    <string name="txt_entreterimento">Entreterimento</string>
+    <string name="imagem_de_musica_description">imagem de musica</string>
+    <string name="imagem_de_exercicios_description">imagem de exercicios</string>
+    <string name="imagem_de_leitura_description">imagem de leitura</string>
+    <string name="imagem_de_jogos_description">imagem de jogos</string>
+    <string name="txt_suporte">Suporte</string>
+
+    <string-array name="genero">
+        <item>Sexo:</item>
+        <item>Feminino</item>
+        <item>Masculino</item>
+        <item>Outros</item>
+        <item>Não declarar</item>
+    </string-array>
 
 </resources>

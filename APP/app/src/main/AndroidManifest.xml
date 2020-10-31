@@ -3,6 +3,8 @@
     package="br.unip.tcc.eiaapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".GraficoActivity"></activity>
+        <activity android:name=".SuporteActivity"></activity>
+        <activity android:name=".BemVindoActivity" />
+        <activity android:name=".EmergenciaActivity" />
+        <activity android:name=".EntretenimentoActivity" />
+        <activity android:name=".TermoUsoActivity" />
+        <activity android:name=".GraficoActivity" />
         <activity android:name=".HumorActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".CadastroActivity" />

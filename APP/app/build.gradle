@@ -44,4 +44,7 @@ dependencies {
     implementation 'com.xwray:groupie:2.8.1'
 
     implementation 'com.jjoe64:graphview:4.2.2'
+
+    implementation 'com.github.rtoshiro.mflibrary:mflibrary:1.0.0'
+    implementation 'javax.mail:mail:1.4.7'
 }

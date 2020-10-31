@@ -13,9 +13,12 @@ public interface CallAPI {
     @POST("watson")
     Call<MensagemWatsonDTO> enviaMensagem(@Body MensagemWatsonDTO mensagemWatsonDTO);
 
-    @POST("humor")
+    @POST("/humor/cadastro")
     Call<HumorDTO> gravaHumor(@Body HumorDTO humorDTO);
 
-    @POST("humores")
+    @POST("/humor/lista")
     Call<List<HumorDTO>> obtemHumores(@Body UserDTO user);
+
+    @POST("/user/cadastro")
+    Call<UserDTO> gravaUsuario(@Body UserDTO user);
 }

@@ -1,12 +1,20 @@
 package br.unip.tcc.eiaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.print.PrintHelper;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.print.PrintManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.jjoe64.graphview.DefaultLabelFormatter;
@@ -15,6 +23,9 @@ import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -37,12 +48,20 @@ public class GraficoActivity extends AppCompatActivity {
     private GraphView graph;
     private UserDTO user;
     private List<HumorDTO> humores;
+    private ImageButton btnMenu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafico);
 
         Util.hideSystemUI(getWindow().getDecorView());
+
+        btnMenu = findViewById(R.id.btn_menu);
+
+        btnMenu.setOnClickListener(view -> {
+            Util.showMenu(view,GraficoActivity.this,R.menu.menu_historico);
+        });
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.URL_API)
@@ -71,7 +90,7 @@ public class GraficoActivity extends AppCompatActivity {
             startActivity(intent);
         });
         btnSave.setOnClickListener(view ->{
-            //TODO função de salvar tela
+            doPhotoPrint(view.getRootView().getRootView().getRootView());
         });
 
     }
@@ -85,6 +104,7 @@ public class GraficoActivity extends AppCompatActivity {
     public void carregaSeries(){
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
         for(int i = 0; i < humores.size(); i++) {
+            Util.atualizaId(humores.get(i).getIdUser(),GraficoActivity.this);
             series.appendData(new DataPoint(i, humores.get(i).getCodHumor()),true,4);
         }
         series.setDrawDataPoints(true);
@@ -115,7 +135,8 @@ public class GraficoActivity extends AppCompatActivity {
         graph.getViewport().setMinY(0.5);
         graph.getViewport().setMaxY(4.5);
         graph.getViewport().setYAxisBoundsManual(true);
-        graph.getViewport().setMaxX(humores.size()-1);
+        graph.getViewport().setMaxX(humores.size()-0.5);
+        graph.getViewport().setMinX(-0.5);
         graph.getViewport().setXAxisBoundsManual(true);
     }
 
@@ -141,5 +162,17 @@ public class GraficoActivity extends AppCompatActivity {
                 return;
             }
         });
+    }
+    private void doPhotoPrint(View view) {
+        PrintHelper photoPrinter = new PrintHelper(GraficoActivity.this);
+        photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
+        Bitmap bitmap = screenShot(view);
+        photoPrinter.printBitmap("historico", bitmap);
+    }
+    public Bitmap screenShot(View view) {
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
     }
 }

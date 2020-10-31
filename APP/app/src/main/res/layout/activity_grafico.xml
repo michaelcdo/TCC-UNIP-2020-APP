@@ -7,6 +7,21 @@
     tools:context=".ChatActivity"
     android:background="@drawable/background_gradient"
     >
+
+    <ImageButton
+        android:id="@+id/btn_menu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu"
+        android:contentDescription="@string/btn_menu_description" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/background_rounded"
         android:layout_width="0dp"
@@ -36,7 +51,7 @@
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:background="@mipmap/background_bar"
+            android:background="@drawable/background_bar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -46,7 +61,7 @@
                 android:id="@+id/btn_voltar"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@mipmap/btn_arrow_back"
+                android:background="@drawable/btn_arrow_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_save"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +72,7 @@
                 android:id="@+id/btn_save"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@mipmap/save"
+                android:background="@drawable/save"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +83,7 @@
                 android:id="@+id/btn_chat"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@mipmap/btn_chat"
+                android:background="@drawable/btn_chat"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btn_save"
@@ -85,7 +100,7 @@
             app:layout_constraintEnd_toStartOf="@+id/graph"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/graph"
-            app:srcCompat="@mipmap/img_feliz"
+            app:srcCompat="@drawable/img_triste"
             app:layout_constraintVertical_bias="0.83"/>
 
         <ImageView
@@ -98,7 +113,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/graph"
             app:layout_constraintVertical_bias="0.08"
-            app:srcCompat="@mipmap/img_triste" />
+            app:srcCompat="@drawable/img_feliz" />
 
         <ImageView
             android:id="@+id/img_raiva"
@@ -110,7 +125,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/graph"
             app:layout_constraintVertical_bias="0.33"
-            app:srcCompat="@mipmap/img_raiva" />
+            app:srcCompat="@drawable/img_confuso" />
 
         <ImageView
             android:id="@+id/img_confuso"
@@ -122,7 +137,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/graph"
             app:layout_constraintVertical_bias="0.58"
-            app:srcCompat="@mipmap/img_confuso" />
+            app:srcCompat="@drawable/img_raiva" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

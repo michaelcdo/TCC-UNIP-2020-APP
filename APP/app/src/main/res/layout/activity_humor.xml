@@ -31,7 +31,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.2"
-            app:srcCompat="@mipmap/img_humor" />
+            app:srcCompat="@drawable/img_humor" />
 
         <Button
             android:id="@+id/btn_confuso"
@@ -83,6 +83,8 @@
             android:paddingRight="30dp"
             android:paddingBottom="30dp"
             android:textSize="13sp"
+            android:background="@drawable/background_textos"
+            android:text="@string/texto_humor_default"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -94,7 +96,7 @@
             android:id="@+id/btn_avancar_humor"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@android:color/transparent"
+            android:background="@drawable/btn_avancar"
             android:contentDescription="@string/btn_avancar_description"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,7 +109,7 @@
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:background="@mipmap/background_bar"
+            android:background="@drawable/background_bar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -117,7 +119,7 @@
                 android:id="@+id/btn_voltar"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@mipmap/btn_arrow_back"
+                android:background="@drawable/btn_arrow_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_graph"
                 app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +130,7 @@
                 android:id="@+id/btn_graph"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@mipmap/btn_graph"
+                android:background="@drawable/btn_graph"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +141,7 @@
                 android:id="@+id/btn_chat"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@mipmap/btn_chat"
+                android:background="@drawable/btn_chat"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btn_graph"
@@ -161,4 +163,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         android:textSize="20sp"/>
+
+    <ImageButton
+        android:id="@+id/btn_menu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

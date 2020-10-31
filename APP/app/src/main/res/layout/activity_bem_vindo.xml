@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tela_inicial"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    tools:context=".BemVindoActivity">
+
+    <TextView
+        android:id="@+id/label_bem_vindo"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:clickable="false"
+        android:gravity="center_horizontal"
+        android:text="@string/label_bem_vindo"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/roboto"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293"
+        android:shadowColor="@color/shadow_text"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="10"/>
+
+    <TextView
+        android:id="@+id/label_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:clickable="false"
+        android:gravity="center_horizontal"
+        android:text="@string/label_nome"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/roboto"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/label_bem_vindo"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/label_bem_vindo"
+        app:layout_constraintTop_toBottomOf="@+id/label_bem_vindo"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <EditText
+        android:id="@+id/input_name"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/bg_text_cadastro"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/label_nome"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/label_nome"
+        app:layout_constraintTop_toBottomOf="@+id/label_nome"
+        android:autofillHints="@string/empty"
+        android:hint="@string/empty"/>
+
+    <TextView
+        android:id="@+id/label_pular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_pular"
+        android:fontFamily="@font/roboto"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@+id/input_name"
+        app:layout_constraintTop_toBottomOf="@+id/input_name" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/input_name"
+        app:layout_constraintEnd_toEndOf="@+id/input_name"
+        app:layout_constraintTop_toTopOf="@+id/input_name"
+        app:srcCompat="@drawable/btn_avancar"
+        android:contentDescription="@string/btn_avancar_description"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

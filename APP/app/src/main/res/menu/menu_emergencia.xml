@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/chat_menu"
+        android:title="@string/txt_chat_menu" />
+    <item android:id="@+id/suporte"
+        android:title="@string/txt_suporte_menu" />
+    <item android:id="@+id/humor"
+        android:title="@string/txt_humor_menu" />
+    <item android:id="@+id/mais"
+        android:title="@string/txt_mais_menu" >
+        <menu>
+            <item android:id="@+id/entretenimento"
+                android:title="@string/txt_entretenimento_menu" />
+            <item android:id="@+id/historico"
+                android:title="@string/txt_historico_menu" />
+            <item android:id="@+id/termo_uso_menu"
+                android:title="@string/txt_termo_menu" />
+        </menu>
+    </item>
+</menu>
