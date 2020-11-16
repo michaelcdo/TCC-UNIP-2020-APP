@@ -45,6 +45,7 @@ public class ChatActivity extends AppCompatActivity {
     private String telaOrigem = "";
     private ImageButton btnMenu;
     private TextView txt_nome_chat;
+    private RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +73,8 @@ public class ChatActivity extends AppCompatActivity {
         }
         txt_nome_chat.setText(nomeIdadeUser);
 
-        carregaChat();
-        RecyclerView rv = findViewById(R.id.recycler_chat);
+        rv = findViewById(R.id.recycler_chat);
+
         inputMensagem = findViewById(R.id.input_mensagem);
         Button btnChat = findViewById(R.id.btnEnviarChat);
 
@@ -98,6 +99,9 @@ public class ChatActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
 
+        carregaChat();
+        moveToBottom();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.URL_API)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -121,7 +125,11 @@ public class ChatActivity extends AppCompatActivity {
             adapter.add(new ChatActivity.MessageItem(msg));
         }
     }
-
+    private void moveToBottom(){
+        if(adapter.getGroupCount()>0){
+            rv.scrollToPosition(adapter.getGroupCount() - 1);
+        }
+    }
     private void sendMessage(){
         String text = inputMensagem.getText().toString();
         if(text.trim().length()>0) {
@@ -139,6 +147,7 @@ public class ChatActivity extends AppCompatActivity {
             MensagemWatsonDTO msg = new MensagemWatsonDTO(this.user.getId(), text);
 
             enviaMensagem(msg);
+            moveToBottom();
         }
     }
 
@@ -187,6 +196,7 @@ public class ChatActivity extends AppCompatActivity {
                 messageRetorno.setTimestamp(Util.getTimeStamp());
                 messageRetorno.setData(Util.getData());
                 adapter.add(new MessageItem(messageRetorno));
+                moveToBottom();
                 Util.salvaHistorico(messageRetorno, ChatActivity.this);
             }
         }

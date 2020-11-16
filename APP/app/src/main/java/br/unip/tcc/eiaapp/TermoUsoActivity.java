@@ -28,7 +28,7 @@ public class TermoUsoActivity extends AppCompatActivity {
         btnAceita = findViewById(R.id.btn_aceita);
 
         btnRecusa.setOnClickListener(view -> {
-            Intent intent = new Intent(this, BemVindoActivity.class);
+            Intent intent = new Intent(this, PrimeiraTelaActivity.class);
             startActivity(intent);
         });
 

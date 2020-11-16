@@ -27,8 +27,6 @@ public class PrimeiraTelaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_primeira_tela);
 
         Util.hideSystemUI(getWindow().getDecorView());
-        Util.atualizaUser(new UserDTO(),PrimeiraTelaActivity.this);
-        Util.limpaHistorico(PrimeiraTelaActivity.this);
 
         if( getIntent().getBooleanExtra("Exit me", false)){
             finish();
